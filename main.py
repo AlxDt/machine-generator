@@ -7,7 +7,7 @@ from gen.RegularParser import RegularParser
 
 def main():
     # Set the input to the file with the specified file name
-    input_stream = FileStream('C:\\Users\\user\\PycharmProjects\\MachineGenerator\\test.txt')
+    input_stream = FileStream('test.txt')
 
     # Split the input stream into its component tokens using the lexer
     lexer = RegularLexer(input_stream)
