@@ -42,6 +42,20 @@ def main():
         for stimulus, destination in transitions.items():
             print('\t\t' + stimulus + ' -> ' + str(destination))
 
+    print('Grammar:')
+
+    for state, transitions in dfa.state_table.items():
+        if (state == dfa.init_state):
+            print('\t' + ('Σ -> '  + str(state)))
+
+        for stimulus, destination in transitions.items():
+            if (destination in dfa.final_states):
+                print('\t' + str(state) + ' -> ' + stimulus)
+                if (len(dfa.state_table.get(str(destination))) > 1):
+                    print('\t' + str(state) + ' -> ' + stimulus + ' x ' + str(destination))
+            else:
+                print('\t' + str(state) + ' -> ' + stimulus + ' x ' + str(destination))
+
     # Test the machine with input
     string = str(input('\nTest the machine (\'-\' to finish testing): '))
 
