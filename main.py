@@ -45,13 +45,13 @@ def main():
     print('Grammar:')
 
     for state, transitions in dfa.state_table.items():
-        if (state == dfa.init_state):
+        if state == dfa.init_state:
             print('\t' + ('Σ -> '  + str(state)))
 
         for stimulus, destination in transitions.items():
-            if (destination in dfa.final_states):
+            if destination in dfa.final_states:
                 print('\t' + str(state) + ' -> ' + stimulus)
-                if (len(dfa.state_table.get(str(destination))) > 1):
+                if len(dfa.state_table.get(str(destination))) > 0:
                     print('\t' + str(state) + ' -> ' + stimulus + ' x ' + str(destination))
             else:
                 print('\t' + str(state) + ' -> ' + stimulus + ' x ' + str(destination))
